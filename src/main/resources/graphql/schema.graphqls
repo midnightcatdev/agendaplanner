@@ -1,0 +1,29 @@
+type Meeting {
+    id: ID!
+    title: String
+    date: String
+}
+
+type Agenda {
+    id:ID!
+    date: String
+    meetings: [Meeting]
+}
+
+type Query {
+    findAll: [Agenda]!
+    findOne(id: ID!): Agenda
+    findAll: [Meeting]!
+    findOne(id: ID!): Meeting
+}
+
+type Mutation {
+    create(date: String, meeting: String): Agenda
+    update(id: ID, date: String, meeting: String ): Agenda
+    delete(id: ID): Agenda
+
+    create(title: String, date: String): Meeting
+    update(id: ID, title: String ): Meeting
+    delete(id: ID): Meeting
+}
+
